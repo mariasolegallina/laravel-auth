@@ -5,6 +5,11 @@
     <div class="container">
 
         <h2 class="fs-4 text-secondary my-4">{{$project->title}}</h2>
+
+        @if ($project->cover_image)
+        <img src="{{ asset('storage/' . $project->cover_image) }}" alt="immagine di copertina">
+        @endif
+
         <p>{{$project->description}}</p>
 
         <div class="my-4">

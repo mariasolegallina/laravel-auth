@@ -11,7 +11,7 @@
 
 <section>
     <div class="container">
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         
             @csrf
 
@@ -25,6 +25,11 @@
                 <label for="description"  class="form-label">Descrizione</label>
                 <textarea class="form-control @error('title') is-invalid @enderror" id="description" name="description" rows="3">{{ old('description') }}</textarea>
                 <span class="invalid-feedback">@error('description') {{$message}} @enderror</span>
+            </div>
+
+            <div class="mb-3">
+                <label for="cover_image" class="form-label">Immagine di copertina</label>
+                <input type="file" class="form control" name="cover_image" id="cover_image">
             </div>
 
             <div class="mb-3">
