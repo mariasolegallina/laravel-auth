@@ -36,16 +36,6 @@
                     <td>
                         <a href="{{route('admin.projects.edit', $project)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
-                    {{-- <td>
-                        <form action="{{ route('admin.projects.destroy',$project)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            
-                            <button class="btn btn-link" type="submit">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </form>
-                    </td> --}}
                    </tr>
                @empty
                    <tr>

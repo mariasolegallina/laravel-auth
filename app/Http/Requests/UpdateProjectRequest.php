@@ -11,7 +11,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'unique:projects,title|max:255|required',
+            'description' => 'max:255',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'required' => 'Il campo è obbligatorio',
+
+            'title.unique' => "È già presente un progetto con lo stesso titolo",
+            'title.max' => "Il titolo deve avere massimo :max caratteri",
+
+            'description.max' => "Il testo non puù superare i :max caratteri",
         ];
     }
 }

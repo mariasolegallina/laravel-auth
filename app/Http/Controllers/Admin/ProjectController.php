@@ -64,7 +64,12 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        // dd($request);
+        $request->validated();
+
+        $project->update($request->all());
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -74,6 +79,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return redirect()->route('admin.project.index');
+        return redirect()->route('admin.projects.index');
     }
 }
