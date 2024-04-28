@@ -28,14 +28,15 @@
                 <span class="invalid-feedback">@error('description') {{$message}} @enderror</span>
             </div>
 
-            <div class="mb-3">
+
+            <div class="mb-3 d-flex flex-column">
+                <label for="cover_image" class="form-label">Immagine di copertina</label>
                 @if ($project->cover_image)
                 <img src="{{ asset('storage/' . $project->cover_image) }}" alt="immagine di copertina">
                 @endif
-                <label for="cover_image" class="form-label">Immagine di copertina</label>
-                <input type="file" class="form control" name="cover_image" id="cover_image">
+                <input type="file" class="form control @error('cover-image') is-invalid @enderror" name="cover_image" id="cover_image">
+                <span class="invalid-feedback">@error('cover_image') {{$message}} @enderror</span>
             </div>
-
 
 
             <div class="mb-3">

@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'unique:projects,title|max:255|required',
             'description' => 'max:255',
-            'cover_image' => 'file|size:1024|max:255|nullable',
+            'cover_image' => 'file|mime:jpg|size:1024|max:255|nullable',
         ];
     }
 
@@ -38,8 +38,10 @@ class StoreProjectRequest extends FormRequest
 
             'description.max' => "Il testo non puù superare i :max caratteri",
 
-            'cover_image.max' => "Il nome del file supera i :max caratteri",
+            'cover_image.mime' => "Il file deve essere in formato .jpg",
             'cover_image.size' => "Il file non deve superare :size KB",
+            'cover_image.max' => "Il nome del file supera i :max caratteri",
+
         ];
     }
 }
